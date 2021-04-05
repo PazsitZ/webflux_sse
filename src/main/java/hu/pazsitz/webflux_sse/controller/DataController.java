@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -46,6 +47,9 @@ public class DataController {
                 .onErrorReturn("")
                 .filter(StringUtils::isNotBlank)
                 .map(this::csvToObject)
+                .onErrorContinue((throwable, o) -> {
+                    logger.error("Error while processing {}. Cause: {}", o, throwable.getMessage());
+                })
                 .delayElements(Duration.ofMillis(100))
                 .log();
 
