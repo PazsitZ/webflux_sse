@@ -11,12 +11,12 @@
 
   <name>webflux_sse Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>https://dev.pazsitz.hu/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -65,19 +65,6 @@
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
-          <groupId>io.quarkus</groupId>
-          <artifactId>quarkus-maven-plugin</artifactId>
-          <version>1.10.5.Final</version>
-          <executions>
-            <execution>
-              <goals>
-                <goal>build</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-
-        <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
         </plugin>
@@ -120,7 +107,7 @@
     </plugins>
   </build>
 
-  <dependencyManagement>
+  <!--dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>org.springframework.cloud</groupId>
@@ -130,14 +117,5 @@
         <scope>import</scope>
       </dependency>
     </dependencies>
-  </dependencyManagement>
-
-  <profiles>
-    <profile>
-      <id>native</id>
-      <properties>
-        <quarkus.package.type>native</quarkus.package.type>
-      </properties>
-    </profile>
-  </profiles>
+  </dependencyManagement-->
 </project>
